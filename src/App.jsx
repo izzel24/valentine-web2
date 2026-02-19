@@ -137,7 +137,7 @@ function App() {
             >
               <TileLayer
                 // attribution='&copy; OpenStreetMap &copy; CartoDB'
-                url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
               />
               <ZoomControl position='topright' />
               {places.map((place) => (
