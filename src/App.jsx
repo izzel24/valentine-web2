@@ -8,6 +8,20 @@ import { PhotoProvider, PhotoView } from 'react-photo-view'
 import { useState } from 'react'
 import L from 'leaflet'
 
+import pejaten1 from './assets/Pejaten1.jpeg'
+import pejaten2 from './assets/Pejaten2.jpeg'
+import pejaten3 from './assets/Pejaten3.jpeg'
+import cijantung1 from './assets/Cijantung1.JPG'
+import cijantung2 from './assets/Cijantung2.JPG'
+import cijantung3 from './assets/Cijantung3.JPG'
+import aeon1 from './assets/Aeon1.JPG'
+import aeon2 from './assets/Aeon2.JPG'
+import aeon3 from './assets/Aeon3.JPG'
+import PIM1 from './assets/PIM1.jpeg'
+import PIM2 from './assets/PIM2.jpeg'
+
+
+
 function App() {
 
   const customIcon = L.icon({
@@ -26,7 +40,7 @@ function App() {
       type: "Pusat perbelanjaan",
       date: "17 Jan 2023",
       coords: [-6.31249, 106.86203],
-      images: ["/src/assets/Cijantung1.JPG", "/src/assets/Cijantung2.JPG", "/src/assets/Cijantung3.JPG"],
+      images: [cijantung1, cijantung2, cijantung3],
       story: "Tempat pertama kali kita ketemu",
       meet: 3,
       reviews: [
@@ -48,7 +62,7 @@ function App() {
       type: "Pusat perbelanjaan",
       date: "17 Jan 2023",
       coords: [-6.2805764066736645, 106.82928217142073],
-      images: ["/src/assets/Pejaten1.jpeg", "/src/assets/Pejaten2.jpeg", "/src/assets/Pejaten3.jpeg"],
+      images: [pejaten1, pejaten2, pejaten3],
       story: "Tempat Paling Enak Pacaran",
       meet: 3,
       reviews: [
@@ -70,7 +84,7 @@ function App() {
       type: "Pusat perbelanjaan",
       date: "17 Feb 2023",
       coords: [-6.306591665866241, 106.84020989552936],
-      images: ["/src/assets/Aeon1.JPG", "/src/assets/Aeon2.JPG", "/src/assets/Aeon3.JPG"],
+      images: [aeon1, aeon2, aeon3],
       story: "Tempat Paling Banyak Ketemu",
       meet: 3,
       reviews: [
@@ -92,7 +106,7 @@ function App() {
       type: "Pusat perbelanjaan",
       date: "18 Des 2023",
       coords: [-6.264922262150313, 106.78426421564707],
-      images: ["/src/assets/PIM1.jpeg", "/src/assets/PIM2.jpeg"],
+      images: [PIM1, PIM2],
       story: "Tempat buat pusing aku karna banyak orang",
       meet: 1,
       reviews: [
