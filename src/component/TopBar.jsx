@@ -1,4 +1,4 @@
-export default function TopBar() {
+export default function TopBar({showHeatmap, setShowHeatmap}) {
     return (
         <div className="min-h-[13%] bg-[#1a1a1a] border-b border-gray-800 flex items-center justify-between px-6 text-white">
 
@@ -10,7 +10,11 @@ export default function TopBar() {
                 <button onClick={() => alert("coming soon")} className="hover:text-pink-400 transition">
                     Overview
                 </button>
-                <button onClick={() => alert("coming soon")} className="hover:text-pink-400 transition">
+                <button
+                    onClick={() => setShowHeatmap(prev => !prev)}
+                    className={`hover:text-pink-400 transition ${showHeatmap ? "text-pink-400" : ""
+                        }`}
+                >
                     Heatmap
                 </button>
                 <button onClick={() => alert("coming soon")} className="hover:text-pink-400 transition">

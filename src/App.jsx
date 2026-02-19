@@ -1,12 +1,13 @@
-import { MapContainer, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer, useMap, ZoomControl } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import 'react-photo-view/dist/react-photo-view.css'
 import './App.css'
 import SideBar from './component/SideBar'
 import TopBar from './component/TopBar'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import L from 'leaflet'
+import "leaflet.heat"
 
 import pejaten1 from './assets/Pejaten1.jpeg'
 import pejaten2 from './assets/Pejaten2.jpeg'
@@ -22,15 +23,18 @@ import PIM2 from './assets/PIM2.jpeg'
 
 
 
-function App() {
 
+
+function App() {
+  
   const customIcon = L.icon({
     iconUrl: "/location.png",
     iconSize: [35, 35],
     iconAnchor: [20, 40],
     popupAnchor: [0, -40],
   })
-
+  
+  const [showHeatmap, setShowHeatmap] = useState(false)
   const [selectedPlace, setSelectedPlace] = useState(null)
 
   const places = [
@@ -86,7 +90,7 @@ function App() {
       coords: [-6.306591665866241, 106.84020989552936],
       images: [aeon1, aeon2, aeon3],
       story: "Tempat Paling Banyak Ketemu",
-      meet: 3,
+      meet: 12,
       reviews: [
         {
           user: "Aku",
@@ -211,7 +215,7 @@ function App() {
       ]
     },
     {
-      id: 8,
+      id: 9,
       name: "UBM Alam Sutera",
       type: "Pusat perbelanjaan",
       date: "-",
@@ -238,7 +242,7 @@ function App() {
 
   return (
     <div className="h-screen max-w-screen  flex flex-col bg-[#232526]">
-      <TopBar />
+      <TopBar showHeatmap={showHeatmap} setShowHeatmap={setShowHeatmap} />
 
       {/* CONTENT AREA */}
       <div className="flex flex-1 min-h-0">
@@ -263,7 +267,8 @@ function App() {
                 // attribution='&copy; OpenStreetMap &copy; CartoDB'
                 url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
               />
-              <ZoomControl position='topright' />
+              {showHeatmap && <HeatmapLayer places={places} />}
+              {showHeatmap && <HeatmapLegend />}
               {places.map((place) => (
                 <Marker key={place.id} position={place.coords} icon={customIcon}>
                   <Popup className='min-w-[250px]' autoClose={false}>
@@ -305,3 +310,90 @@ function App() {
 }
 
 export default App
+
+
+function HeatmapLayer({ places }) {
+  const map = useMap()
+
+  useEffect(() => {
+    const heatData = places.map(place => [
+      place.coords[0],
+      place.coords[1],
+      place.meet || 1
+    ])
+
+    const heatLayer = L.heatLayer(heatData, {
+      radius: 50,
+      blur: 20,
+      gradient: {
+        0.2: "#ffb3c6",
+        0.4: "#ff4d6d",
+        0.6: "#ff006e",
+        0.8: "#d00000",
+      }
+    })
+
+    heatLayer.addTo(map)
+
+    return () => {
+      map.removeLayer(heatLayer)
+    }
+  }, [map, places])
+
+  return null
+}
+
+function HeatmapLegend() {
+  const map = useMap()
+
+  useEffect(() => {
+    const legend = L.control({ position: "bottomright" })
+
+    legend.onAdd = function () {
+      const div = L.DomUtil.create("div", "info legend")
+
+      div.innerHTML = `
+        <div style="
+          background: #1e1f22;
+          padding: 10px;
+          border-radius: 12px;
+          color: white;
+          font-size: 12px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        ">
+          <div style="margin-bottom:6px;font-weight:600;">
+            Intensitas Ketemu
+          </div>
+
+          <div style="
+            height: 10px;
+            width: 150px;
+            background: linear-gradient(to right,
+              #ffb3c6,
+              #ff4d6d,
+              #ff006e,
+              #d00000
+            );
+            border-radius: 6px;
+            margin-bottom: 4px;
+          "></div>
+
+          <div style="display:flex; justify-content:space-between;">
+            <span>Jarang</span>
+            <span>Sering</span>
+          </div>
+        </div>
+      `
+
+      return div
+    }
+
+    legend.addTo(map)
+
+    return () => {
+      legend.remove()
+    }
+  }, [map])
+
+  return null
+}
