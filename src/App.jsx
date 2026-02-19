@@ -122,6 +122,116 @@ function App() {
         },
       ]
     },
+    {
+      id: 5,
+      name: "Living World Alam Sutera",
+      type: "Pusat perbelanjaan",
+      date: "-",
+      coords: [-6.244152724876947, 106.65311372436506],
+      images: [],
+      story: "-",
+      meet: 1,
+      reviews: [
+        // {
+        //   user: "Aku",
+        //   rating: 2,
+        //   comment: "Banyak orang dan mahal"
+        // },
+        // {
+        //   user: "Kamu",
+        //   rating: 5,
+        //   comment: "Banyak orang bisa liat cowok lain"
+        // },
+      ]
+    },
+    {
+      id: 6,
+      name: "Mall @ Alam Sutera",
+      type: "Pusat perbelanjaan",
+      date: "-",
+      coords: [-6.221497677798592, 106.6541528532011],
+      images: [],
+      story: "-",
+      meet: 1,
+      reviews: [
+        // {
+        //   user: "Aku",
+        //   rating: 2,
+        //   comment: "Banyak orang dan mahal"
+        // },
+        // {
+        //   user: "Kamu",
+        //   rating: 5,
+        //   comment: "Banyak orang bisa liat cowok lain"
+        // },
+      ]
+    },
+    {
+      id: 7,
+      name: "Jakarta Premium Outlet",
+      type: "Pusat perbelanjaan",
+      date: "-",
+      coords: [-6.220147277334117, 106.65968903785605],
+      images: [],
+      story: "-",
+      meet: 1,
+      reviews: [
+        // {
+        //   user: "Aku",
+        //   rating: 2,
+        //   comment: "Banyak orang dan mahal"
+        // },
+        // {
+        //   user: "Kamu",
+        //   rating: 5,
+        //   comment: "Banyak orang bisa liat cowok lain"
+        // },
+      ]
+    },
+    {
+      id: 8,
+      name: "Ikea Alam Sutera",
+      type: "Pusat perbelanjaan",
+      date: "-",
+      coords: [-6.219441284336853, 106.6631084780317],
+      images: [],
+      story: "-",
+      meet: 1,
+      reviews: [
+        // {
+        //   user: "Aku",
+        //   rating: 2,
+        //   comment: "Banyak orang dan mahal"
+        // },
+        // {
+        //   user: "Kamu",
+        //   rating: 5,
+        //   comment: "Banyak orang bisa liat cowok lain"
+        // },
+      ]
+    },
+    {
+      id: 8,
+      name: "UBM Alam Sutera",
+      type: "Pusat perbelanjaan",
+      date: "-",
+      coords: [-6.225191920096773, 106.65721188203753],
+      images: [],
+      story: "-",
+      meet: 1,
+      reviews: [
+        // {
+        //   user: "Aku",
+        //   rating: 2,
+        //   comment: "Banyak orang dan mahal"
+        // },
+        // {
+        //   user: "Kamu",
+        //   rating: 5,
+        //   comment: "Banyak orang bisa liat cowok lain"
+        // },
+      ]
+    },
   ] 
 
 
