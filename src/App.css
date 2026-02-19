@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import 'tailwind-scrollbar-hide/v4';
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0px ;
+}
+
+/* Hilangin rounded tip (panah bawah) */
+.leaflet-popup-tip {
+  border-radius: 0px ;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+}
+
+button{
+  cursor: pointer;
+}
